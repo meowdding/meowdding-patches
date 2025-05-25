@@ -15,7 +15,7 @@ import net.minecraft.util.ExtraCodecs
 import java.util.function.Function
 import java.util.function.Supplier
 
-object Codecs {
+internal object Codecs {
 
     val TARGET_CONDITION_CODEC: Codec<TargetCondition> by lazy {
         Codec.either(

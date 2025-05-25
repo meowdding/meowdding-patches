@@ -11,6 +11,7 @@ import me.owdding.ktcodecs.GenerateCodec
 import me.owdding.patches.targets.Target
 import me.owdding.patches.targets.TargetCondition
 import me.owdding.patches.targets.TargetConditions
+import net.fabricmc.loader.api.ModContainer
 
 @GenerateCodec
 data class Date(
@@ -30,5 +31,5 @@ data class Date(
 
     override val type = TargetConditions.DATE
 
-    override fun test(target: Target) = date in validWhen
+    override fun test(target: Target, modContainer: ModContainer) = date in validWhen
 }

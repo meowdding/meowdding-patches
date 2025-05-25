@@ -3,12 +3,13 @@ package me.owdding.patches.targets
 import me.owdding.ktcodecs.GenerateDispatchCodec
 import me.owdding.patches.generated.DispatchHelper
 import me.owdding.patches.targets.conditions.*
+import net.fabricmc.loader.api.ModContainer
 import kotlin.reflect.KClass
 
 interface TargetCondition {
     val type: TargetConditions
 
-    fun test(target: Target): Boolean
+    fun test(target: Target, modContainer: ModContainer): Boolean
 }
 
 @GenerateDispatchCodec(TargetCondition::class)
@@ -28,4 +29,4 @@ enum class TargetConditions(override val type: KClass<out TargetCondition>) : Di
 
 typealias Targets = Map<Target, TargetCondition>
 
-fun Targets.test(): Boolean = this.entries.any { (target, condition) -> condition.test(target) }
+fun Targets.test(modContainer: ModContainer): Boolean = this.entries.any { (target, condition) -> condition.test(target, modContainer) }
