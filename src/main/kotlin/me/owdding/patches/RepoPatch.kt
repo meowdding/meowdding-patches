@@ -16,14 +16,14 @@ data class RepoPatch(
     @NamedCodec("target_condition") val targets: Map<Target, TargetCondition>,
     val action: PatchAction,
     val file: String,
+    val ordinal: Int = 0, // sorted ascending -> should only be used if order is important
 ) {
 
-    fun shouldApply(modContainer: ModContainer): Boolean = targets
+    fun shouldApply(modContainer: ModContainer, file: String): Boolean = targets
         .filter { it.key.modId == modContainer.metadata.id }
-        .test(modContainer)
+        .test(modContainer) && file == this.file
 
     fun apply(jsonElement: JsonElement) = action.apply(jsonElement)
-
 
     companion object {
         val CODEC: Codec<RepoPatch> = MoewddingPatchesCodecs.getCodec<RepoPatch>()
