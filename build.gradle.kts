@@ -91,7 +91,7 @@ ksp {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            artifactId = "meowdding-patches"
+            artifactId = "patches"
             from(components["java"])
 
             pom {
