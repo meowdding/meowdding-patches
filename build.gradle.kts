@@ -88,7 +88,36 @@ ksp {
     arg("meowdding.codecs.package", "me.owdding.patches.generated")
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = "meowdding-patches"
+            from(components["java"])
 
+            pom {
+                name.set("MeowddingPatches")
+                url.set("https://github.com/meowdding/meowdding-patches")
+
+                scm {
+                    connection.set("git:https://github.com/meowdding/meowdding-patches.git")
+                    developerConnection.set("git:https://github.com/meowdding/meowdding-patches.git")
+                    url.set("https://github.com/meowdding/meowdding-patches")
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            setUrl("https://maven.teamresourceful.com/repository/thatgravyboat/")
+            credentials {
+                username = System.getenv("MAVEN_USER") ?: providers.gradleProperty("maven_username").orNull
+                password = System.getenv("MAVEN_PASS") ?: providers.gradleProperty("maven_password").orNull
+            }
+        }
+    }
+}
+
+//<editor-fold defaultstate="collapsed" desc="Helpers">
 fun Provider<out ExternalModuleDependency>.withMcVersion() = this.get().withMcVersion()
 fun ExternalModuleDependency.withMcVersion(): ExternalModuleDependency {
     return DefaultMinimalDependency(
@@ -118,3 +147,4 @@ fun <T : ExternalModuleDependency> DependencyHandlerScope.includeModImplementati
         include(this)
         modImplementation(this)
     }
+//</editor-fold>
