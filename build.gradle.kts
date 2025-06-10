@@ -61,6 +61,14 @@ dependencies {
     modRuntimeOnly(libs.modmenu)
 }
 
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    filesMatching(listOf("fabric.mod.json")) {
+        expand("version" to project.version)
+    }
+}
+
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     options.release.set(21)

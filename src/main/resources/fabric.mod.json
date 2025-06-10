@@ -1,0 +1,19 @@
+{
+    "schemaVersion": 1,
+    "id": "meowdding-patches",
+    "version": "${version}",
+    "name": "Meowdding-Patches",
+    "description": "Meowdding Patches",
+    "authors": [],
+    "contact": {},
+    "license": "",
+    "environment": "client",
+    "entrypoints": {},
+    "custom": {
+        "modmenu": {
+            "badges": [
+                "library"
+            ]
+        }
+    }
+}
