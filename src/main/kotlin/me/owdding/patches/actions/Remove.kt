@@ -13,6 +13,8 @@ data class Remove(
     @Compact val target: List<String>,
     override val required: Boolean,
 ) : PatchAction {
+    override val type = PatchActions.DELETE
+
     override fun apply(element: JsonElement) {
         val targetElement = element.getPath(path, true)
         when (targetElement) {

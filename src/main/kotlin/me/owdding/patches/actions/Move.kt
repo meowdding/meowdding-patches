@@ -10,6 +10,8 @@ data class Move(
     val to: String,
     override val required: Boolean = false,
 ) : PatchAction {
+    override val type = PatchActions.MOVE
+
     override fun apply(element: JsonElement) {
         val path = element.getPath(from)
         val parent = to.substringBeforeLast(".", "")

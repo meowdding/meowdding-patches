@@ -14,6 +14,8 @@ data class Insert(
     val spread: Boolean = true,
     override val required: Boolean,
 ) : PatchAction {
+    override val type = PatchActions.INSERT
+
     override fun apply(element: JsonElement) {
         val targetElement = element.getPath(target, true)
         when (targetElement) {
