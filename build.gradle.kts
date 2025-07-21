@@ -55,7 +55,6 @@ dependencies {
     modImplementation(libs.loader)
     modImplementation(libs.fabric)
     modImplementation(libs.fabrickotlin)
-    modImplementation(libs.rlib.withMcVersion())
 
     modRuntimeOnly(libs.devauth)
     modRuntimeOnly(libs.modmenu)
