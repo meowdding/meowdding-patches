@@ -54,7 +54,6 @@ dependencies {
 
     modImplementation(libs.loader)
     modImplementation(libs.fabric)
-    modImplementation(libs.fabrickotlin)
 
     modRuntimeOnly(libs.devauth)
     modRuntimeOnly(libs.modmenu)

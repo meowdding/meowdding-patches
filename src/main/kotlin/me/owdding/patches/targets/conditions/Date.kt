@@ -4,7 +4,7 @@ import com.ibm.icu.text.SimpleDateFormat
 import com.ibm.icu.util.Calendar
 import com.ibm.icu.util.TimeZone
 import com.ibm.icu.util.ULocale
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 import me.owdding.ktcodecs.Compact
 import me.owdding.ktcodecs.FieldName
 import me.owdding.ktcodecs.GenerateCodec
@@ -12,7 +12,9 @@ import me.owdding.patches.targets.Target
 import me.owdding.patches.targets.TargetCondition
 import me.owdding.patches.targets.TargetConditions
 import net.fabricmc.loader.api.ModContainer
+import kotlin.time.ExperimentalTime
 
+@OptIn(ExperimentalTime::class)
 @GenerateCodec
 data class Date(
     val pattern: String,

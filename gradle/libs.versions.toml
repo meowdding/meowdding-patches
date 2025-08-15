@@ -7,8 +7,8 @@ loader = "0.16.10"
 parchmentmc = "2025.04.19@zip"
 
 # Dependencies
-ksp = "2.1.20-2.0.0"
-kotlin = "2.1.20"
+ksp = "2.2.0-2.0.2"
+kotlin = "2.2.0"
 fabric = "0.119.9+1.21.5"
 fabrickotlin = "1.13.3+kotlin.2.1.21"
 rlib = "3.5.0"
